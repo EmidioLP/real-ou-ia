@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#FBF5EC">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Real ou IA?">
+<title>Real ou IA?</title>
+<!--PWA--><link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icone-180.png"><!--/PWA-->
+<link rel="icon" href="assets/logo-rec.png">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ============ TELA INICIAL ============ -->
+  <section class="tela tela--ativa" id="tela-inicio">
+    <div class="inicio">
+      <div class="inicio__esq">
+        <img class="logo-rec" id="logo-secreto" src="assets/logo-rec.png"
+             alt="REC — Rede de Estudos Constitucionais" draggable="false">
+        <h1 class="titulo-jogo">
+          <span class="titulo-jogo__real">REAL</span>
+          <span class="titulo-jogo__ou">ou</span>
+          <span class="titulo-jogo__ia">IA?</span>
+        </h1>
+        <p class="inicio__chamada">
+          Você consegue descobrir o que é <b>real</b> e o que foi criado por
+          <b>Inteligência Artificial</b>?
+        </p>
+        <ul class="inicio__regras">
+          <li><span class="pill pill--real">REAL</span> o conteúdo é verdadeiro.</li>
+          <li><span class="pill pill--ia">IA</span> o conteúdo foi criado por Inteligência Artificial.</li>
+        </ul>
+        <p class="inicio__aviso">⚠️ Atenção: algumas imagens parecem <i>muito</i> reais!</p>
+      </div>
+
+      <div class="inicio__dir">
+        <form class="cartao-entrada" id="form-inicio" autocomplete="off">
+          <label class="rotulo" for="campo-nome">Digite seu nome ou apelido</label>
+          <input class="campo-texto" id="campo-nome" type="text" maxlength="18"
+                 placeholder="Ex.: Maria" required
+                 autocapitalize="words" autocorrect="off" spellcheck="false">
+          <p class="erro-inline" id="erro-nome" hidden>Escreva um nome para começar 🙂</p>
+          <button class="botao botao--principal botao--gigante" type="submit">COMEÇAR ▶</button>
+          <p class="cartao-entrada__rodape">
+            <span id="info-rodadas">— rodadas</span> · leva cerca de 2 minutos
+          </p>
+        </form>
+        <button class="botao-fantasma" type="button" id="btn-ranking-inicio">🏆 Ver ranking</button>
+        <p class="aviso-armazenamento" id="aviso-armazenamento" hidden>
+          ⚠️ Este navegador não está guardando dados: o jogo funciona, mas o
+          <b>ranking não vai acumular</b> entre os participantes.
+        </p>
+      </div>
+    </div>
+    <p class="creditos">Antes de compartilhar: <b>pare, pense e verifique.</b></p>
+  </section>
+
+  <!-- ============ TELA DE JOGO ============ -->
+  <section class="tela" id="tela-jogo">
+    <header class="barra-topo">
+      <div class="barra-topo__info">
+        <span class="contador" id="contador-rodada">RODADA 1/10</span>
+        <span class="selo-nivel" id="selo-nivel">FÁCIL</span>
+      </div>
+      <div class="progresso"><div class="progresso__preenchido" id="progresso-preenchido"></div></div>
+      <div class="placar" id="placar">✅ 0</div>
+    </header>
+
+    <main class="palco" id="palco">
+      <div class="midia" id="midia"><!-- imagem / vídeo / post injetado aqui --></div>
+      <p class="credito-midia" id="credito-midia" hidden></p>
+    </main>
+
+    <footer class="rodape-jogo">
+      <p class="pergunta" id="pergunta">Essa imagem é REAL ou foi criada por IA?</p>
+      <!-- Aparece no lugar da pergunta enquanto o jogador reexamina a imagem -->
+      <button class="botao botao--secundario botao--voltar" type="button" id="btn-voltar-explicacao" hidden>
+        ↩ VOLTAR À EXPLICAÇÃO
+      </button>
+      <div class="opcoes" id="opcoes"><!-- botões injetados aqui --></div>
+    </footer>
+
+    <!-- Painel de feedback (sobe de baixo) -->
+    <div class="feedback" id="feedback" hidden>
+      <div class="feedback__cartao" id="feedback-cartao">
+        <div class="feedback__cabecalho">
+          <span class="feedback__icone" id="feedback-icone">✅</span>
+          <div>
+            <p class="feedback__veredito" id="feedback-veredito">Você acertou!</p>
+            <p class="feedback__resposta" id="feedback-resposta">Resposta: REAL</p>
+          </div>
+        </div>
+        <p class="feedback__explicacao" id="feedback-explicacao"></p>
+        <div class="feedback__acoes">
+          <button class="botao botao--secundario botao--grande" type="button" id="btn-ver-imagem">🔍 VER IMAGEM</button>
+          <button class="botao botao--principal botao--grande" type="button" id="btn-proxima">PRÓXIMA ➜</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TELA DE RESULTADO ============ -->
+  <section class="tela" id="tela-resultado">
+    <div class="resultado">
+      <img class="logo-rec--pequeno" src="assets/logo-rec.png"
+           alt="REC — Rede de Estudos Constitucionais" draggable="false">
+      <h2 class="resultado__titulo">🏁 FIM DE JOGO!</h2>
+      <p class="resultado__nome" id="resultado-nome">Boa, Maria!</p>
+
+      <div class="resultado__anel" id="resultado-anel">
+        <div class="resultado__anel-interno">
+          <span class="resultado__porcento" id="resultado-porcento">70%</span>
+          <span class="resultado__acertos" id="resultado-acertos">7 de 10</span>
+        </div>
+      </div>
+
+      <p class="resultado__mensagem" id="resultado-mensagem"></p>
+      <p class="resultado__comparacao" id="resultado-comparacao"></p>
+
+      <div class="linha-botoes">
+        <button class="botao botao--principal botao--grande" type="button" id="btn-ver-ranking">🏆 VER RANKING</button>
+        <button class="botao botao--secundario botao--grande" type="button" id="btn-jogar-novamente">🔄 JOGAR NOVAMENTE</button>
+      </div>
+      <p class="resultado__fecho">“Antes de acreditar ou compartilhar, verifique a fonte.”</p>
+    </div>
+  </section>
+
+  <!-- ============ TELA DE RANKING ============ -->
+  <section class="tela" id="tela-ranking">
+    <div class="ranking">
+      <header class="ranking__topo">
+        <h2 class="ranking__titulo">🏆 RANKING</h2>
+        <span class="ranking__total" id="ranking-total"></span>
+        <img class="ranking__logo" src="assets/logo-rec.png"
+             alt="REC — Rede de Estudos Constitucionais" draggable="false">
+      </header>
+      <div class="ranking__lista-wrap">
+        <ol class="ranking__lista" id="ranking-lista"></ol>
+        <p class="ranking__vazio" id="ranking-vazio" hidden>Ninguém jogou ainda. Seja o primeiro! 🎉</p>
+      </div>
+      <div class="linha-botoes">
+        <button class="botao botao--principal botao--grande" type="button" id="btn-novo-jogador">👤 PRÓXIMO PARTICIPANTE</button>
+        <button class="botao-fantasma" type="button" id="btn-admin">⚙️</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TELA ADMIN ============ -->
+  <section class="tela" id="tela-admin">
+    <div class="admin">
+      <h2 class="admin__titulo">⚙️ Modo administrador</h2>
+      <p class="admin__linha">Rodadas carregadas: <b id="admin-origem">—</b></p>
+      <p class="admin__linha">Resultados salvos: <b id="admin-qtd">0</b></p>
+
+      <div class="admin__grupo">
+        <button class="botao botao--secundario" type="button" id="btn-exportar">⬇️ Baixar ranking (.csv)</button>
+        <label class="botao botao--secundario" for="input-json">📂 Importar rounds.json</label>
+        <input type="file" id="input-json" accept=".json,application/json" hidden>
+        <button class="botao botao--secundario" type="button" id="btn-limpar-import" hidden>↩️ Voltar ao rounds.json da pasta</button>
+      </div>
+
+      <div class="admin__grupo">
+        <button class="botao botao--perigo" type="button" id="btn-zerar">🗑️ ZERAR RANKING</button>
+        <button class="botao botao--secundario" type="button" id="btn-tela-cheia">⛶ Tela cheia</button>
+        <button class="botao botao--principal" type="button" id="btn-sair-admin">✔ Voltar</button>
+      </div>
+
+      <p class="admin__dica">
+        Atalhos: <b>Ctrl + Shift + A</b> abre/fecha esta tela · 5 toques rápidos no <b>logo da REC</b> na tela inicial também abrem.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ ERRO DE CARREGAMENTO ============ -->
+  <section class="tela" id="tela-erro">
+    <div class="erro-carga">
+      <h2>😕 Não consegui carregar as rodadas</h2>
+      <p id="erro-detalhe"></p>
+      <p class="erro-carga__ajuda">
+        Verifique se a pasta <code>data/</code> está junto do <code>index.html</code>.
+        Se você editou o <code>rounds.json</code> abrindo o app direto do arquivo,
+        use <b>⚙️ → Importar rounds.json</b> ou edite também o <code>data/rounds.js</code>.
+      </p>
+      <button class="botao botao--principal botao--grande" type="button" onclick="location.reload()">🔄 Tentar de novo</button>
+    </div>
+  </section>
+
+  <!-- Aviso de orientação (retrato) -->
+  <div class="aviso-orientacao">
+    <div>
+      <p class="aviso-orientacao__icone">🔄</p>
+      <p>Gire o tablet para a <b>horizontal</b></p>
+    </div>
+  </div>
+
+</div>
+
+<script src="data/rounds.js"></script>
+<script src="js/dados.js"></script>
+<script src="js/ranking.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

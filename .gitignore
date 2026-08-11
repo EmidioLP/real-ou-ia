@@ -1,0 +1,11 @@
+# Zip gerado automaticamente — é só uma cópia da pasta publicar-ipad/,
+# que já está versionada. Regerado por gerar-arquivo-unico.bat.
+publicar-ipad.zip
+
+# Desenhos e material das versões antigas, mantidos só como histórico local.
+assets/rounds/_placeholders-antigos/
+
+# Lixo de sistema
+Thumbs.db
+desktop.ini
+.DS_Store
