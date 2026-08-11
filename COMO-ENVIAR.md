@@ -41,7 +41,7 @@ depois de uma atualização.
 
 ### Alternativa rápida, sem GitHub
 
-Arraste a pasta `publicar-ipad` (ou o `publicar-ipad.zip`) em
+Arraste a pasta `publicar-ipad` em
 **[vercel.com/drop](https://vercel.com/drop)**.
 
 > ⚠️ Nesse caminho, **cada arrastada cria um projeto NOVO**, com endereço diferente — e o
@@ -116,9 +116,9 @@ Aí é bem mais simples, e nem precisa de internet:
 ## 🔧 Se você mudar alguma rodada depois
 
 1. Edite `data/rounds.json`.
-2. Dê 2 cliques em **`sincronizar-rounds.bat`**.
-3. Dê 2 cliques em **`gerar-arquivo-unico.bat`** (regenera o `Real-ou-IA.html` **e** a pasta `publicar-ipad`).
-4. Envie para o GitHub:
+2. Dê 2 cliques em **`atualizar-jogo.bat`** (faz tudo: valida o JSON, atualiza a cópia
+   offline e regenera os dois pacotes).
+3. Envie para o GitHub:
 
    ```bash
    git add -A

@@ -1,9 +1,8 @@
-# Zip gerado automaticamente — é só uma cópia da pasta publicar-ipad/,
-# que já está versionada. Regerado por gerar-arquivo-unico.bat.
-publicar-ipad.zip
-
-# Desenhos e material das versões antigas, mantidos só como histórico local.
-assets/rounds/_placeholders-antigos/
+# Pacote avulso para Android/PC, gerado por atualizar-jogo.bat.
+# Fica de fora do repositorio por ser 6 MB de arquivo derivado — quem
+# precisar dele e so rodar o script. (publicar-ipad/index.html tambem e
+# gerado, mas esse VAI para o repositorio: e o que a Vercel publica.)
+Real-ou-IA.html
 
 # Lixo de sistema
 Thumbs.db

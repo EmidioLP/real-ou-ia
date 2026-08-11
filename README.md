@@ -1,4 +1,4 @@
-# 🤖 REAL OU IA?
+﻿# 🤖 REAL OU IA?
 
 Mini-game de adivinhação para apresentação sobre fake news e conteúdo gerado por IA.
 Roda **offline**, direto no navegador do tablet, sem instalar nada e sem servidor.
@@ -9,7 +9,7 @@ Roda **offline**, direto no navegador do tablet, sem instalar nada e sem servido
 
 👉 **Passo a passo completo em [COMO-ENVIAR.md](COMO-ENVIAR.md).**
 
-Existem duas versões prontas, geradas pelo `gerar-arquivo-unico.bat`:
+Existem duas versões, geradas pelo `atualizar-jogo.bat`:
 
 | Destino | O que usar | Como funciona |
 |---|---|---|
@@ -90,7 +90,7 @@ Você pode trocar só o `arquivo` e a `explicacao` de cada uma, mantendo a estru
 Por segurança, o navegador **não deixa** uma página aberta como arquivo (`file://`) ler um `.json`.
 Por isso o jogo mantém uma cópia em `data/rounds.js`. Depois de editar o `rounds.json`, faça **uma** destas opções:
 
-- **No PC:** dê dois cliques em **`sincronizar-rounds.bat`**. Ele copia o `rounds.json` para o `rounds.js` e ainda avisa se você esqueceu uma vírgula.
+- **No PC:** dê dois cliques em **`atualizar-jogo.bat`**. Ele copia o `rounds.json` para o `rounds.js`, regenera os pacotes e ainda avisa se você esqueceu uma vírgula.
 - **No tablet:** abra o jogo → **⚙️** → **📂 Importar rounds.json** → escolha o arquivo. Fica salvo no tablet.
 
 Se você abre o jogo por um servidor local (`http://...`), nada disso é necessário: o `rounds.json` é lido direto.
@@ -153,9 +153,9 @@ amostradas diretamente do logo:
 
 | Cor | Código | Onde aparece |
 |---|---|---|
-| Marrom | `#562008` | Títulos, botão **IA**, botão **NÃO COMPARTILHARIA** |
+| Marrom | `#562008` | Títulos e botão **IA** (e **FAKE NEWS**, se voltar a usar posts) |
 | Laranja | `#D05808` | Botão **REAL**, botões principais, destaques |
-| Dourado | `#FAB026` | Barra de progresso, botão **COMPARTILHARIA**, bordas |
+| Dourado | `#FAB026` | Barra de progresso, bordas, avisos |
 | Areia | `#FBF5EC` | Fundo das telas |
 
 O logo está em `assets/logo-rec.png`, **com fundo transparente** (foi convertido do JPEG
@@ -173,7 +173,7 @@ Mudar ali muda o app inteiro.
 Três formas de abrir:
 
 - Toque no **⚙️** na tela de ranking;
-- **5 toques rápidos** no título "REAL ou IA?" da tela inicial;
+- **5 toques rápidos** no **logo da REC** da tela inicial;
 - **Ctrl + Shift + A** (se houver teclado).
 
 Lá dentro você pode:
@@ -189,22 +189,18 @@ Lá dentro você pode:
 
 ```
 real-ou-ia/
-├── publicar-ipad/             ← 👈 IPAD: arraste esta pasta no Netlify Drop
-│   ├── index.html                (o jogo inteiro num arquivo)
+├── publicar-ipad/             ← 👈 É ESTA PASTA QUE A VERCEL PUBLICA
+│   ├── index.html                (gerado: o jogo inteiro num arquivo)
 │   ├── manifest.webmanifest      (faz virar app com ícone)
 │   ├── sw.js                     (faz funcionar sem internet)
+│   ├── vercel.json               (cabeçalhos de cache)
 │   └── icone-180/192/512.png
-├── Real-ou-IA.html            ← 👈 ANDROID: arquivo único, roda offline
-├── index.html                 ← versão em pasta, para editar no computador
+├── index.html                 ← fonte, para editar e testar no computador
+├── atualizar-jogo.bat         ← 2 cliques depois de mexer no rounds.json
+├── atualizar-jogo.ps1
 ├── COMO-ENVIAR.md             ← passo a passo do envio
-├── gerar-arquivo-unico.bat    ← 2 cliques: regenera as duas versões acima
-├── gerar-arquivo-unico.ps1
-├── manifest.webmanifest
-├── sw.js
-├── icone-180.png / icone-192.png / icone-512.png
 ├── README.md
-├── sincronizar-rounds.bat     ← 2 cliques depois de editar o rounds.json
-├── sincronizar-rounds.ps1
+├── CREDITOS.md
 ├── css/
 │   └── estilos.css
 ├── js/
@@ -214,7 +210,6 @@ real-ou-ia/
 ├── data/
 │   ├── rounds.json            ← 👈 é aqui que você edita as rodadas
 │   └── rounds.js              ← cópia automática (não edite à mão)
-├── CREDITOS.md                ← autores e licenças de cada imagem
 └── assets/
     ├── logo-rec.png           ← logo da REC (fundo transparente)
     └── rounds/                ← 👈 é aqui que vão as imagens e vídeos
@@ -224,12 +219,14 @@ real-ou-ia/
         ├── 04-feira-real.jpg
         ├── 05-prato-ia.jpg
         ├── 06-praia-real.jpg
-        ├── 07-mammatus-real.png
+        ├── 07-mammatus-real.jpg
         ├── 08-rosto-ia.jpg
         ├── 09-rosto-real.jpg
-        ├── 10-hotel-ia.jpg
-        └── _placeholders-antigos/   (material não usado, pode apagar)
+        └── 10-hotel-ia.jpg
 ```
+
+> O `Real-ou-IA.html` (arquivo único para Android/PC) também é gerado pelo
+> `atualizar-jogo.bat`, mas fica fora do repositório por ser derivado e pesado.
 
 As imagens são **fotos e imagens de IA reais**, com licença livre e origem verificada.
 Autores e licenças estão em [CREDITOS.md](CREDITOS.md) — leia antes de trocar qualquer arquivo.
@@ -276,9 +273,9 @@ conversa — se uma imagem assim pode ser fabricada em segundos, a pergunta deix
 
 | Sintoma | Causa provável |
 |---|---|
-| Editei o `rounds.json` e nada mudou | Faltou rodar o `sincronizar-rounds.bat` (veja o passo 3 acima). |
+| Editei o `rounds.json` e nada mudou | Faltou rodar o `atualizar-jogo.bat` (veja o passo 3 acima). |
 | "Não encontrei o arquivo desta rodada" | O nome no `arquivo` está diferente do nome real, ou o arquivo não está em `assets/rounds/`. |
-| Uma rodada sumiu do jogo | Algum campo obrigatório está faltando ou escrito errado; o jogo pula a rodada em vez de travar. Abra o `sincronizar-rounds.bat` para ver o aviso. |
+| Uma rodada sumiu do jogo | Algum campo obrigatório está faltando ou escrito errado; o jogo pula a rodada em vez de travar. Abra o `atualizar-jogo.bat` para ver o aviso. |
 | O ranking sumiu | O navegador do tablet limpou os dados do site (aba anônima ou limpeza automática). Não use aba anônima. |
 | A tela pede para girar o tablet | O jogo é feito para a horizontal. |
 

@@ -1,6 +1,6 @@
 /* ---------------------------------------------------------------
    ARQUIVO GERADO AUTOMATICAMENTE - NAO EDITE ESTE ARQUIVO.
-   Edite data/rounds.json e rode "sincronizar-rounds.bat".
+   Edite data/rounds.json e rode "atualizar-jogo.bat".
    Esta copia existe porque o navegador bloqueia a leitura de .json
    quando o index.html e aberto direto do arquivo (file://).
    --------------------------------------------------------------- */
