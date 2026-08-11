@@ -74,7 +74,6 @@
 
     <main class="palco" id="palco">
       <div class="midia" id="midia"><!-- imagem / vídeo / post injetado aqui --></div>
-      <p class="credito-midia" id="credito-midia" hidden></p>
     </main>
 
     <footer class="rodape-jogo">
@@ -97,6 +96,9 @@
           </div>
         </div>
         <p class="feedback__explicacao" id="feedback-explicacao"></p>
+        <!-- Crédito da mídia: só aqui, depois da resposta. Antes disso ele
+             entregaria o gabarito ("Imagem gerada por IA: ..."). -->
+        <p class="credito-midia" id="credito-midia" hidden></p>
         <div class="feedback__acoes">
           <button class="botao botao--secundario botao--grande" type="button" id="btn-ver-imagem">🔍 VER IMAGEM</button>
           <button class="botao botao--principal botao--grande" type="button" id="btn-proxima">PRÓXIMA ➜</button>

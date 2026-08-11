@@ -11,13 +11,20 @@ Os créditos também aparecem discretamente na tela durante o jogo (campo `credi
 | 3 | `03-documento-ia.jpg` | IA | [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:AI-generated_gibberish) | Google DeepMind (prompt de Primordial Soup) | Domínio público |
 | 4 | `04-feira-real.jpg` | REAL | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mysore_-_Fruit_vendor.jpg) | Christopher J. Fynn | CC BY-SA 4.0 (crédito obrigatório) |
 | 5 | `05-prato-ia.jpg` | IA | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Generative_AI_can_be_used_to_create_realistic_images_of_food_dishes.jpg) | Dennis Sylvester Hurd | CC0 (domínio público) |
-| 6 | `06-praia-real.jpg` | REAL | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sunset_on_the_Aresquiers_beach.jpg) | Christian Ferrer | CC BY 4.0 (crédito obrigatório) |
+| 6 | `06-hotel-ia.jpg` | IA | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hotel_on_the_Coast_-_Flickr_-_Dennis_S._Hurd.jpg) | Dennis Sylvester Hurd | CC BY 4.0 (crédito obrigatório) |
 | 7 | `07-mammatus-real.png` | REAL | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mammatus-clouds-Tulsa-1973.png) | NOAA (governo dos EUA) | Domínio público |
 | 8 | `08-rosto-ia.jpg` | IA | [whichfaceisreal.com](https://www.whichfaceisreal.com/) | StyleGAN (NVIDIA) | Rosto sintético — pessoa inexistente |
 | 9 | `09-rosto-real.jpg` | REAL | [whichfaceisreal.com](https://www.whichfaceisreal.com/) | Dataset FFHQ (foto do Flickr sob Creative Commons) | CC — uso educacional |
-| 10 | `10-hotel-ia.jpg` | IA | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hotel_on_the_Coast_-_Flickr_-_Dennis_S._Hurd.jpg) | Dennis Sylvester Hurd | CC BY 4.0 (crédito obrigatório) |
+| 10 | `10-terremoto-real.jpg` | REAL | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:July_5,_2019,_Ridgecrest_earthquake_road_offset.jpg) | Ken Hudnut / USGS | Domínio público |
 
-São 5 fotos reais e 5 imagens de IA, alternadas para que ninguém acerte por padrão.
+São **5 fotos reais e 5 imagens de IA**, alternadas para que ninguém acerte por padrão.
+
+> A rodada 10 mostra a estrada rompida pelo terremoto de Ridgecrest (Califórnia, julho de 2019),
+> o mesmo evento citado pela reportagem da BBC News Brasil
+> ["O que é o 'Big One'"](https://www.bbc.com/portuguese/articles/cj30m4pz3l8o) (06/12/2024),
+> que serve de leitura de apoio para a dinâmica. A foto usada aqui **não** é a da reportagem
+> (aquelas são de agências, com direitos restritos) — é o registro dos geólogos do USGS do
+> mesmo terremoto, em domínio público.
 
 | Outros | Arquivo | Origem | Licença |
 |---|---|---|---|

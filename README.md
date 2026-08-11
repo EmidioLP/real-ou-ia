@@ -77,7 +77,7 @@ Cada rodada é um bloco entre `{ }`, separado por vírgula:
 | `nivel` | `facil`, `medio` ou `dificil` — muda só a etiqueta colorida na tela. |
 | `tipo` | `imagem`, `video` ou `fake_news`. |
 | `arquivo` | Caminho a partir da pasta do jogo. Ex.: `assets/rounds/05-praca.jpg`. |
-| `credito` | *(opcional)* Autor e licença da mídia. Aparece em letras pequenas embaixo da imagem. **Obrigatório** para imagens CC BY e CC BY-SA. |
+| `credito` | *(opcional)* Autor e licença da mídia. Aparece **só depois da resposta**, dentro do bloco de explicação — embaixo da imagem ele entregaria o gabarito. **Obrigatório** para imagens CC BY e CC BY-SA. |
 | `resposta_correta` | `real` ou `ia` (para imagem/vídeo). |
 | `explicacao` | Texto mostrado depois da resposta. É a parte mais importante do jogo — explique **como** dava para perceber. |
 
@@ -218,11 +218,11 @@ real-ou-ia/
         ├── 03-documento-ia.jpg
         ├── 04-feira-real.jpg
         ├── 05-prato-ia.jpg
-        ├── 06-praia-real.jpg
+        ├── 06-hotel-ia.jpg
         ├── 07-mammatus-real.jpg
         ├── 08-rosto-ia.jpg
         ├── 09-rosto-real.jpg
-        └── 10-hotel-ia.jpg
+        └── 10-terremoto-real.jpg
 ```
 
 > O `Real-ou-IA.html` (arquivo único para Android/PC) também é gerado pelo
@@ -242,11 +242,11 @@ São **5 fotos reais e 5 imagens de IA**, alternadas para que ninguém acerte po
 | 3 | Fácil | IA | Documento histórico com texto embaralhado + mão deformada. **Sempre leia o texto da imagem.** |
 | 4 | Médio | REAL | Feira (2015): centenas de detalhes pequenos e independentes, sem repetição. |
 | 5 | Médio | IA | Foto de comida: o erro está nos **objetos** (talher retorcido), não no prato. |
-| 6 | Médio | REAL | Praia ao pôr do sol (2017): bonita demais, mas o rastro da onda é exposição longa. |
+| 6 | Médio | IA | Hotel na costa italiana: a mais convincente do jogo. A arquitetura não fecha e os carros estão derretidos. |
 | 7 | Médio | REAL | Nuvens mammatus: a **data** (1973) prova o que os olhos não provam. |
 | 8 | Difícil | IA | Rosto StyleGAN perfeito, mas o fundo vira mancha e o cordão some de um lado. |
 | 9 | Difícil | REAL | Comparação direta com a 8 — imperfeição de pele é sinal de câmera. |
-| 10 | Difícil | IA | Hotel na costa italiana: quase todo mundo marca REAL. Fecha a dinâmica. |
+| 10 | Difícil | REAL | Estrada rompida no terremoto de Ridgecrest (2019). Fecha a dinâmica: foto real também engana quando vem com legenda falsa. |
 
 ## 🔎 Como escolher novas imagens sem errar o gabarito
 

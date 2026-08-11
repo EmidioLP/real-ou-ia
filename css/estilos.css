@@ -346,16 +346,17 @@ body {
 }
 .midia-erro code { color: var(--laranja); word-break: break-all; }
 
-/* Crédito/licença da mídia — atribuição exigida por CC BY e CC BY-SA. */
+/* Crédito/licença da mídia — atribuição exigida por CC BY e CC BY-SA.
+   Fica dentro do cartão de explicação, nunca embaixo da imagem: ali ele
+   entregaria a resposta antes do jogador decidir. */
 .credito-midia {
-  flex-shrink: 0;
-  font-size: clamp(9px, 1.2vh, 12px);
+  font-size: clamp(10px, 1.3vh, 13px);
+  line-height: 1.35;
   color: var(--marrom-claro);
-  text-align: center;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  text-align: right;
+  padding-top: 2px;
+  border-top: 1px solid var(--cartao-borda);
+  margin-top: -4px;
 }
 
 /* --- Post de rede social (rodada fake_news) --- */

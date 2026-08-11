@@ -58,10 +58,10 @@ window.RODADAS_EMBUTIDAS =
       "id": 6,
       "nivel": "medio",
       "tipo": "imagem",
-      "arquivo": "assets/rounds/06-praia-real.jpg",
-      "credito": "Foto: Christian Ferrer — praia dos Aresquiers, França, 18/11/2017 — CC BY 4.0 — via Wikimedia Commons",
-      "resposta_correta": "real",
-      "explicacao": "Foto real, de novembro de 2017. Ela cai na armadilha contrária: é bonita demais, e por isso muita gente marca IA. O que entrega que é fotografia é a técnica — a água tem o rastro sedoso de uma exposição longa, em que a onda se move enquanto o obturador fica aberto. Some a isso o degradê contínuo do céu, os grãos e as marcas na areia, e a passarela metálica ao fundo com cada barra no lugar. Beleza não é prova de falsificação."
+      "arquivo": "assets/rounds/06-hotel-ia.jpg",
+      "credito": "Imagem gerada por IA: Dennis Sylvester Hurd — CC BY 4.0 — via Wikimedia Commons",
+      "resposta_correta": "ia",
+      "explicacao": "É IA — e provavelmente a mais convincente do jogo. Parece uma fotografia de um hotel na costa italiana: luz de fim de tarde, profundidade, o mar ao fundo. Nada grita \"falso\", e é justamente esse o ponto. Os erros só aparecem quando você para de olhar o conjunto e começa a examinar as partes: a arquitetura não fecha — os arcos das janelas mudam de estilo de um andar para o outro, as colunas da torre não se alinham com as de baixo e há sacadas apoiadas em nada. Na estrada, os carros antigos estão derretidos, sem forma definida, e as pessoas no terraço são manchas. Quando a cena inteira parece perfeita, examine um pedaço de cada vez: repetições que deveriam ser iguais, objetos pequenos e gente ao fundo."
     },
     {
       "id": 7,
@@ -94,10 +94,10 @@ window.RODADAS_EMBUTIDAS =
       "id": 10,
       "nivel": "dificil",
       "tipo": "imagem",
-      "arquivo": "assets/rounds/10-hotel-ia.jpg",
-      "credito": "Imagem gerada por IA: Dennis Sylvester Hurd — CC BY 4.0 — via Wikimedia Commons",
-      "resposta_correta": "ia",
-      "explicacao": "É IA — e essa é a rodada que fecha a dinâmica, porque quase todo mundo marca REAL. Parece uma fotografia de um hotel na costa italiana, com luz e profundidade perfeitas. Os erros só aparecem quando você para e examina: a arquitetura não fecha — os arcos das janelas mudam de estilo de andar para andar, as colunas da torre não se alinham com as de baixo e há sacadas apoiadas em nada. Os carros antigos na estrada estão derretidos, sem forma definida, e as pessoas no terraço são manchas. Se uma imagem tão convincente pode ser fabricada em segundos, a pergunta deixa de ser \"parece real?\" e passa a ser \"de onde isso veio?\". Antes de acreditar ou compartilhar: pare, pense e verifique."
+      "arquivo": "assets/rounds/10-terremoto-real.jpg",
+      "credito": "Foto: Ken Hudnut / USGS — Ridgecrest, Califórnia, 06/07/2019 — domínio público",
+      "resposta_correta": "real",
+      "explicacao": "É real. É o terremoto de magnitude 7,1 que atingiu Ridgecrest, na Califórnia, em julho de 2019: a ruptura do solo deslocou a estrada mais de um metro para o lado. Quem fotografou foram geólogos do USGS, o serviço geológico dos Estados Unidos, e a imagem está no arquivo público de lá desde 2019 — seis anos antes de existir IA capaz de forjar isso. E é com ela que a dinâmica fecha, porque ela guarda a última armadilha: uma imagem pode ser inteiramente verdadeira e ainda assim enganar. Fotos reais de desastres são recicladas o tempo todo com legenda nova — a foto de 2019 reaparece como \"o terremoto de ontem\". Então não basta perguntar \"a imagem é real?\". Pergunte também: é desta história que ela veio? Antes de acreditar ou compartilhar, pare, pense e verifique."
     }
   ]
 };

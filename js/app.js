@@ -116,6 +116,7 @@
     $('progresso-preenchido').style.width = `${(estado.indice / total) * 100}%`;
     $('placar').textContent = `✅ ${estado.acertos}`;
     $('feedback').hidden = true;
+    $('credito-midia').hidden = true;   // só reaparece ao responder
     mostrarExplicacao(false); // limpa o modo "ver imagem" da rodada anterior
 
     montarMidia(r);
@@ -123,7 +124,11 @@
     preCarregarProxima();
   }
 
-  /** Legenda discreta de crédito/licença, exigida pelas licenças CC BY e CC BY-SA. */
+  /**
+   * Crédito/licença da mídia, exigido por CC BY e CC BY-SA.
+   * Aparece só junto da explicação, depois da resposta: mostrado embaixo da
+   * imagem, ele entregaria o gabarito ("Imagem gerada por IA: ...").
+   */
   function aplicarCredito(r) {
     const alvo = $('credito-midia');
     alvo.textContent = r.credito || '';
@@ -134,7 +139,6 @@
     const alvo = $('midia');
     alvo.innerHTML = '';
     alvo.classList.remove('midia--carregando');
-    aplicarCredito(r);
 
     if (r.tipo === 'imagem') {
       alvo.classList.add('midia--carregando');
@@ -281,6 +285,7 @@
 
     $('feedback-resposta').textContent = `Resposta: ${NOME_RESPOSTA[r.resposta_correta]}`;
     $('feedback-explicacao').textContent = r.explicacao || 'Sem explicação cadastrada para esta rodada.';
+    aplicarCredito(r);
 
     const ultima = estado.indice === estado.rodadas.length - 1;
     $('btn-proxima').textContent = ultima ? 'VER RESULTADO 🏁' : 'PRÓXIMA ➜';
