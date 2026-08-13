@@ -372,19 +372,17 @@
       ? `${lista.length} ${lista.length === 1 ? 'participante' : 'participantes'}`
       : '';
 
-    // Mostra o top 10; se o jogador atual ficou fora, acrescenta a linha dele no fim.
-    const topo = lista.slice(0, 10);
-    const euForaDoTopo = estado.ultimoId && !topo.some(r => r.id === estado.ultimoId);
-    const visiveis = topo.map((r, i) => ({ r, pos: i + 1 }));
-    if (euForaDoTopo) {
-      const idx = lista.findIndex(r => r.id === estado.ultimoId);
-      if (idx > -1) visiveis.push({ r: lista[idx], pos: idx + 1 });
-    }
+    // Mostra todos os participantes; a lista rola dentro da tela.
+    let minhaLinha = null;
 
-    visiveis.forEach(({ r, pos }) => {
+    lista.forEach((r, i) => {
+      const pos = i + 1;
       const li = document.createElement('li');
       li.className = `linha-rank linha-rank--${pos}`;
-      if (r.id === estado.ultimoId) li.classList.add('linha-rank--voce');
+      if (r.id === estado.ultimoId) {
+        li.classList.add('linha-rank--voce');
+        minhaLinha = li;
+      }
 
       const cPos = document.createElement('span');
       cPos.className = 'linha-rank__pos';
@@ -412,6 +410,22 @@
     });
 
     mostrarTela('tela-ranking');
+
+    // Com a lista inteira na tela, quem ficou lá embaixo precisa se achar sozinho.
+    // O cálculo espera a animação de entrada da tela terminar: durante ela a
+    // transformação distorce as medidas e a rolagem não acontece.
+    const caixa = $('ranking-lista-wrap');
+    caixa.scrollTop = 0;
+    if (minhaLinha) {
+      setTimeout(() => {
+        const rc = caixa.getBoundingClientRect();
+        const rl = minhaLinha.getBoundingClientRect();
+        const centralizar = (rl.top - rc.top) - (caixa.clientHeight - rl.height) / 2;
+        // Atribuição direta em vez de scrollTo({behavior:'smooth'}): há navegador
+        // em que o modo suave simplesmente não rola.
+        caixa.scrollTop = Math.max(0, caixa.scrollTop + centralizar);
+      }, 320);
+    }
   }
 
   // ---------------------------------------------------------------
