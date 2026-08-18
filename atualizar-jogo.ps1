@@ -92,6 +92,7 @@ $logo = ParaDataUri 'assets\logo-rec.png'
 $js = @(
     'window.REALOUIA_ARQUIVO_UNICO = true;',
     "window.RODADAS_EMBUTIDAS = $jsonEmbutido;",
+    (Ler 'js\pdf.js'),
     (Ler 'js\dados.js'),
     (Ler 'js\ranking.js'),
     (Ler 'js\app.js')
@@ -102,7 +103,7 @@ $html = $html.Replace('<link rel="icon" href="assets/logo-rec.png">', "<link rel
 $html = $html.Replace('src="assets/logo-rec.png"', "src=`"$logo`"")
 
 if ($html -notmatch [regex]::Escape('<script src="js/app.js"></script>')) { throw 'nao achei o bloco de <script> no index.html' }
-foreach ($s in @('data/rounds.js', 'js/dados.js', 'js/ranking.js')) {
+foreach ($s in @('data/rounds.js', 'js/pdf.js', 'js/dados.js', 'js/ranking.js')) {
     $html = $html.Replace("<script src=`"$s`"></script>", '')
 }
 $html = $html.Replace('<script src="js/app.js"></script>', "<script>`r`n$js`r`n</script>")

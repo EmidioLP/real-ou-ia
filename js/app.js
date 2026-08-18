@@ -450,6 +450,40 @@
     setTimeout(() => URL.revokeObjectURL(url), 2000);
   }
 
+  /**
+   * Gera o PDF dos resultados e entrega da melhor forma que o aparelho permite.
+   * No iPad, o menu Compartilhar do iOS é o caminho que leva a "Salvar em Arquivos";
+   * no computador e no Android, um download comum resolve.
+   */
+  async function salvarPdf() {
+    const lista = Ranking.ordenado();
+    if (!lista.length) { alert('Ainda não há resultados para salvar.'); return; }
+
+    const bytes = PdfRanking.gerar(lista, { quando: new Date().toLocaleString('pt-BR') });
+    const nome = `resultados-real-ou-ia-${new Date().toISOString().slice(0, 10)}.pdf`;
+    const blob = new Blob([bytes], { type: 'application/pdf' });
+
+    const arquivo = new File([blob], nome, { type: 'application/pdf' });
+    if (navigator.canShare && navigator.canShare({ files: [arquivo] })) {
+      try {
+        await navigator.share({ files: [arquivo], title: 'Real ou IA? — resultados' });
+        return;
+      } catch (e) {
+        if (e && e.name === 'AbortError') return;  // a pessoa fechou o menu
+        // qualquer outra falha: cai no download comum abaixo
+      }
+    }
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = nome;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+  }
+
   async function importarJson(arquivo) {
     try {
       const texto = await arquivo.text();
@@ -500,6 +534,7 @@
     $('btn-admin').addEventListener('click', abrirAdmin);
     $('btn-sair-admin').addEventListener('click', () => mostrarTela('tela-inicio'));
     $('btn-tela-cheia').addEventListener('click', pedirTelaCheia);
+    $('btn-pdf').addEventListener('click', salvarPdf);
     $('btn-exportar').addEventListener('click', baixarCsv);
     $('btn-zerar').addEventListener('click', () => {
       if (confirm('Apagar TODOS os resultados do ranking?\n\nEssa ação não pode ser desfeita.')) {
