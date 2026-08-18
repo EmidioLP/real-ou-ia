@@ -5,6 +5,35 @@ Roda **offline**, direto no navegador do tablet, sem instalar nada e sem servido
 
 ---
 
+## 📊 Resultados da aplicação
+
+Aplicado em **13 de agosto de 2026**, com **35 participantes** distribuídos em dois grupos
+que jogaram em paralelo, entre 16h08 e 18h23.
+
+[![Prévia do relatório de resultados](docs/resultados-previa.png)](docs/resultados-2026-08-13.pdf)
+
+| | |
+|---|---|
+| Participantes | **35** |
+| Média de acertos | **7,0** de 10 (mediana também 7) |
+| Gabaritaram | **nenhum** — a melhor marca foi 9, feita por 7 pessoas |
+| Tempo médio de partida | **1min19** |
+
+Três coisas que os dados mostraram:
+
+- **Ninguém acertou as dez.** 86% das pessoas ficaram entre 6 e 9 acertos — a tarefa não é
+  impossível nem trivial, que é exatamente o terreno onde a desinformação circula melhor.
+- **Os dois grupos terminaram com a mesma média**, 7,0 cada um. Duas amostras independentes
+  chegando ao mesmo número dão confiança de que esse é o desempenho típico do público.
+- **O tempo de partida quase não se relacionou com o acerto** (correlação de 0,06). A partida
+  mais rápida durou 22 segundos e fez 9 acertos; a mais longa levou 2min51 e fez 6.
+
+📄 **[Relatório completo em PDF](docs/resultados-2026-08-13.pdf)** — 7 páginas, com os gráficos
+e a tabela de todas as partidas. **Sem identificação dos participantes:** os nomes usados no
+ranking durante a dinâmica não entram no relatório.
+
+---
+
 ## 📲 Para levar o jogo ao tablet de outra pessoa
 
 👉 **Passo a passo completo em [COMO-ENVIAR.md](COMO-ENVIAR.md).**
@@ -179,6 +208,9 @@ Três formas de abrir:
 Lá dentro você pode:
 
 - **🗑️ ZERAR RANKING** — apaga todos os resultados (use antes de começar de verdade);
+- **📄 Salvar resultados (PDF)** — gera um relatório pronto para imprimir ou enviar, com a
+  lista completa. No iPad abre o menu **Compartilhar** (→ *Salvar em Arquivos*, e-mail,
+  WhatsApp); no computador e no Android baixa o arquivo direto;
 - **⬇️ Baixar ranking (.csv)** — salva a lista de participantes para abrir no Excel;
 - **📂 Importar rounds.json** — carrega rodadas novas sem mexer nos arquivos;
 - **⛶ Tela cheia** — caso o navegador tenha saído do modo tela cheia.
@@ -201,11 +233,15 @@ real-ou-ia/
 ├── COMO-ENVIAR.md             ← passo a passo do envio
 ├── README.md
 ├── CREDITOS.md
+├── docs/
+│   ├── resultados-2026-08-13.pdf  ← relatório da aplicação (7 páginas)
+│   └── resultados-previa.png      ← imagem de prévia usada no README
 ├── css/
 │   └── estilos.css
 ├── js/
 │   ├── dados.js               ← carrega e valida as rodadas
 │   ├── ranking.js             ← placar no localStorage
+│   ├── pdf.js                 ← gera o PDF dos resultados (sem biblioteca externa)
 │   └── app.js                 ← fluxo do jogo
 ├── data/
 │   ├── rounds.json            ← 👈 é aqui que você edita as rodadas
