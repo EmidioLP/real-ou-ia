@@ -233,6 +233,8 @@ real-ou-ia/
 ├── COMO-ENVIAR.md             ← passo a passo do envio
 ├── README.md
 ├── CREDITOS.md
+├── LICENSE                    ← MIT (cobre o código)
+├── NOTICE.md                  ← o que o MIT não cobre: imagens e logo
 ├── docs/
 │   ├── resultados-2026-08-13.pdf  ← relatório da aplicação (7 páginas)
 │   └── resultados-previa.png      ← imagem de prévia usada no README
@@ -325,3 +327,23 @@ conversa — se uma imagem assim pode ser fabricada em segundos, a pergunta deix
 > Antes de acreditar ou compartilhar, verifique a fonte e busque outras informações."
 >
 > **"Antes de compartilhar, pare, pense e verifique."**
+
+---
+
+## 📄 Licença
+
+O **código** deste projeto está sob a licença [MIT](LICENSE) — use, modifique e
+redistribua à vontade, inclusive comercialmente, mantendo o aviso de copyright.
+
+Duas coisas **não** estão cobertas por ela:
+
+| O quê | Situação |
+|---|---|
+| Imagens em `assets/rounds/` | Cada uma tem licença própria (CC BY, CC BY-SA, CC0 ou domínio público) e **algumas exigem atribuição ao autor**. Autores e licenças em [CREDITOS.md](CREDITOS.md). |
+| Logo da REC (`assets/logo-rec.png` e os `icone-*.png`) | Marca da Rede de Estudos Constitucionais. Quem for reaproveitar o código deve **trocar pelo próprio logo**. |
+
+Na prática, para reutilizar este jogo: pegue o código, troque o logo e substitua as
+imagens pelas suas — ou mantenha as atuais **com os créditos**, que já aparecem na tela
+ao final de cada rodada.
+
+O escopo completo está em [NOTICE.md](NOTICE.md).

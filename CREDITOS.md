@@ -1,5 +1,9 @@
 # Créditos e licenças das mídias
 
+> O **código** do projeto está sob licença [MIT](LICENSE). As mídias listadas abaixo
+> **não** estão — cada uma tem a sua, e algumas exigem que o autor seja creditado.
+> O escopo está detalhado em [NOTICE.md](NOTICE.md).
+
 Todas as mídias em `assets/rounds/` são de uso livre, com as licenças abaixo.
 Os créditos também aparecem discretamente na tela durante o jogo (campo `credito` no `rounds.json`).
 **Se você trocar alguma imagem, atualize também o campo `credito` da rodada.**
